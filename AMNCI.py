@@ -1,5 +1,5 @@
 # AMNCI value is calculated by assuming (a,b) and (b,a) as same and counting them only once in calculation phase
-#main and return are assumed as functions
+#main is  assumed as functions
 from collections import defaultdict as dd
 method_names=[]
 count=dd(int)
@@ -74,6 +74,8 @@ program_lines=program.split(';')
 for line in program_lines:
     process(line)
 method_names=list(set(method_names))
+if "return" in method_names:
+    method_names.remove("return")
 for i in range(0,len(method_names)):
     temp=method_names[i]
     temp=cannonical(temp)
