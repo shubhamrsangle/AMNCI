@@ -1,4 +1,5 @@
 # AMNCI value is calculated by assuming (a,b) and (b,a) as same and counting them only once in calculation phase
+#main and return are assumed as functions
 from collections import defaultdict as dd
 method_names=[]
 count=dd(int)
@@ -52,6 +53,8 @@ def process(line):
         return 
     name=''
     index=open_para-1
+    while line[index]==' ':
+        index-=1
     while line[index]!=' ' and index>=0 and not is_operator(line[index]):       #If it's function then extract method name from that line
         name+=line[index]
         index-=1
